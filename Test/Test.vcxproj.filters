@@ -26,5 +26,8 @@
     <ClCompile Include="TestHands\TestHands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestHands\TestCards.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

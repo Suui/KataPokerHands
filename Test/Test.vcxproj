@@ -81,12 +81,13 @@
     <ClInclude Include="TestRunner\catch.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TestHands\TestCards.cpp" />
     <ClCompile Include="TestHands\TestHands.cpp" />
     <ClCompile Include="TestRunner\TestRunner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Source\Source.vcxproj">
-      <Project>{9908d728-e839-4285-8ed5-847f08c1afe1}</Project>
+      <Project>{02b79ba0-0863-4d59-b372-b36943eed22a}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

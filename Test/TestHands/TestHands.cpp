@@ -1,4 +1,7 @@
 #include "../TestRunner/catch.hpp"
+#include "../../Source/Result.h"
+#include "../../Source/HandChecker.h"
+
 
 TEST_CASE("Testing Hand Input")
 {
