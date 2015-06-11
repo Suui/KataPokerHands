@@ -11,29 +11,31 @@ Play PlayParser::Parse(std::vector<Card> Cards)
 
 bool PlayParser::CheckHighCard(std::vector<Card> Cards)
 {
-	return !HasPair(Cards);
+	return GetPairIndexFrom(0, Cards) == -1;
 }
 
 
 bool PlayParser::CheckOnePair(std::vector<Card> Cards)
 {
-	return HasPair(Cards);
+	return GetPairIndexFrom(0, Cards) != -1;
 }
 
 
 bool PlayParser::CheckTwoPair(std::vector<Card> Cards)
 {
-	return false;
+	int FirstPair = GetPairIndexFrom(0, Cards);
+	if (FirstPair == -1) return false;
+	return GetPairIndexFrom(FirstPair, Cards) != -1;
 }
 
 
-bool PlayParser::HasPair(std::vector<Card> Cards)
+int PlayParser::GetPairIndexFrom(int From, std::vector<Card> Cards)
 {
-	for (unsigned int i = 0; i < Cards.size() - 1; ++i)
+	for (unsigned int i = From; i < Cards.size() - 1; ++i)
 	{
 		auto Compared = Cards.at(i);
 		for (unsigned int j = i + 1; j < Cards.size(); ++j)
-			if (Cards.at(j).GetValue() == Compared.GetValue()) return true;
+			if (Cards.at(j).GetValue() == Compared.GetValue()) return i;
 	}
-	return false;
+	return -1;
 }
