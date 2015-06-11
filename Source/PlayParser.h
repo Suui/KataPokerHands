@@ -11,4 +11,8 @@ public:
 	static bool CheckHighCard(std::vector<Card> Cards);
 	
 	static bool CheckOnePair(std::vector<Card> Cards);
+	
+	static bool CheckTwoPair(std::vector<Card> Cards);
+
+	static bool HasPair(std::vector<Card> Cards);
 };
