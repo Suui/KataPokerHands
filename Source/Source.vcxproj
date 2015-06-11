@@ -15,7 +15,8 @@
     <ClCompile Include="CardParser.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HandBuilder.cpp" />
-    <ClCompile Include="HandChecker.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="PlayParser.cpp" />
     <ClCompile Include="Result.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -23,7 +24,8 @@
     <ClInclude Include="CardParser.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HandBuilder.h" />
-    <ClInclude Include="HandChecker.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="PlayParser.h" />
     <ClInclude Include="Result.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

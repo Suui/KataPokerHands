@@ -32,7 +32,7 @@ TEST_CASE("Testing Cards")
 					   Card(13, DIAMONDS)};
 
 		REQUIRE(Hand.GetCards().size() == Cards.size());
-		for (int i = 0; i < Cards.size(); ++i)
+		for (unsigned int i = 0; i < Cards.size(); ++i)
 		{
 			CHECK(Cards.at(i).GetValue() == Hand.GetCards().at(i).GetValue());
 			CHECK(Cards.at(i).GetSuit() == Hand.GetCards().at(i).GetSuit());

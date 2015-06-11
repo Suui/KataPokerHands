@@ -26,5 +26,8 @@ public:
 	Hand(::Color Color, std::vector<Card> Cards);
 
 	::Color GetColor() const;
+
+	::Play GetPlay();
+
 	std::vector<Card> GetCards();
 };
