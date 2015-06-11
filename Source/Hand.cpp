@@ -11,3 +11,8 @@ Hand::Hand(::Color Color, std::vector<Card> Cards)
 {
 	return Color;
 }
+
+std::vector<Card> Hand::GetCards()
+{
+	return Cards;
+}
