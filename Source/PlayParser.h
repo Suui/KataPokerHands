@@ -9,4 +9,6 @@ public:
 	static Play Parse(std::vector<Card> Cards);
 	
 	static bool CheckHighCard(std::vector<Card> Cards);
+	
+	static bool CheckOnePair(std::vector<Card> Cards);
 };

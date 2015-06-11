@@ -10,4 +10,10 @@ TEST_CASE("Testing Hands")
 		Hand Hand = HandBuilder::build("Black: 2H 3D 5S 9C KD");
 		CHECK(Hand.GetPlay() == HIGH_CARD);
 	}
+
+	SECTION("One Pair")
+	{
+		Hand Hand = HandBuilder::build("Black: 2H 2D 5S 9C KD");
+		CHECK(Hand.GetPlay() == ONE_PAIR);
+	}
 }

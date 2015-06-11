@@ -3,6 +3,7 @@
 
 Play PlayParser::Parse(std::vector<Card> Cards)
 {
+	if (CheckOnePair(Cards)) return ONE_PAIR;
 	if (CheckHighCard(Cards)) return HIGH_CARD;
 }
 
@@ -19,4 +20,10 @@ bool PlayParser::CheckHighCard(std::vector<Card> Cards)
 		}
 	}
 	return true;
+}
+
+
+bool PlayParser::CheckOnePair(std::vector<Card> Cards)
+{
+	return (!CheckHighCard(Cards));
 }
