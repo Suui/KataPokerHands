@@ -3,20 +3,39 @@
 
 Play PlayParser::Parse(std::vector<Card> Cards)
 {
+	if (CheckTwoPair(Cards)) return TWO_PAIR;
+	if (CheckOnePair(Cards)) return ONE_PAIR;
 	if (CheckHighCard(Cards)) return HIGH_CARD;
 }
 
 
 bool PlayParser::CheckHighCard(std::vector<Card> Cards)
 {
-	for (unsigned int i = 0; i < Cards.size(); ++i)
+	return GetPairIndexFrom(0, Cards) == -1;
+}
+
+
+bool PlayParser::CheckOnePair(std::vector<Card> Cards)
+{
+	return GetPairIndexFrom(0, Cards) != -1;
+}
+
+
+bool PlayParser::CheckTwoPair(std::vector<Card> Cards)
+{
+	int FirstPair = GetPairIndexFrom(0, Cards);
+	if (FirstPair == -1) return false;
+	return GetPairIndexFrom(FirstPair, Cards) != -1;
+}
+
+
+int PlayParser::GetPairIndexFrom(int From, std::vector<Card> Cards)
+{
+	for (unsigned int i = From; i < Cards.size() - 1; ++i)
 	{
 		auto Compared = Cards.at(i);
-		for (unsigned int j = 0; j < Cards.size(); ++j)
-		{
-			if (j == i) continue;
-			if (Cards.at(j).GetValue() == Compared.GetValue()) return false;
-		}
+		for (unsigned int j = i + 1; j < Cards.size(); ++j)
+			if (Cards.at(j).GetValue() == Compared.GetValue()) return i;
 	}
-	return true;
+	return -1;
 }
