@@ -15,7 +15,12 @@ class Card
 	int Value;
 	Suit Suit;
 
+
 public:
 
 	Card(int Value, ::Suit Suit);
+
+	int GetValue();
+
+	::Suit GetSuit();
 };
