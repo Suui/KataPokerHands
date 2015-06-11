@@ -14,5 +14,7 @@ public:
 	
 	static bool CheckTwoPair(std::vector<Card> Cards);
 
+	static bool CheckThreeOfAKind(std::vector<Card> Card);
+
 	static int GetPairIndexFrom(int From, std::vector<Card> Cards);
 };

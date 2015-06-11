@@ -3,6 +3,7 @@
 
 Play PlayParser::Parse(std::vector<Card> Cards)
 {
+	if (CheckThreeOfAKind(Cards)) return THREE_OF_A_KIND;
 	if (CheckTwoPair(Cards)) return TWO_PAIR;
 	if (CheckOnePair(Cards)) return ONE_PAIR;
 	if (CheckHighCard(Cards)) return HIGH_CARD;
@@ -26,6 +27,12 @@ bool PlayParser::CheckTwoPair(std::vector<Card> Cards)
 	int FirstPair = GetPairIndexFrom(0, Cards);
 	if (FirstPair == -1) return false;
 	return GetPairIndexFrom(FirstPair, Cards) != -1;
+}
+
+
+bool PlayParser::CheckThreeOfAKind(std::vector<Card> Card)
+{
+
 }
 
 
