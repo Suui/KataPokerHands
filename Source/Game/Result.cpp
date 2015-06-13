@@ -1,7 +1,7 @@
 ﻿#include "Result.h"
 
 
-std::string Result::GetOutput()
+std::string Result::Output()
 {
-	return Output;
+	return output;
 }
