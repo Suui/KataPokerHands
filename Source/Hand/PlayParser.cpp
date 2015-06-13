@@ -6,6 +6,7 @@ Play PlayParser::Parse(std::vector<Card> cards)
 {
 	this->cards = cards;
 
+	if (CheckFlush()) return FLUSH;
 	if (CheckStraight()) return STRAIGHT;
 	if (CheckThreeOfAKind()) return THREE_OF_A_KIND;
 	if (CheckTwoPair()) return TWO_PAIR;
@@ -49,6 +50,15 @@ bool PlayParser::CheckStraight()
 
 	for (unsigned i = 1; i < cards.size(); ++i)
 		if (cards[i].Value() - 1 != cards[i - 1].Value()) return false;
+
+	return true;
+}
+
+
+bool PlayParser::CheckFlush()
+{
+	for (unsigned i = 1; i < cards.size(); ++i)
+		if (cards[i].Suit() != cards[i - 1].Suit()) return false;
 
 	return true;
 }

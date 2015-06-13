@@ -20,5 +20,7 @@ public:
 
 	bool CheckStraight();
 
+	bool CheckFlush();
+
 	int GetPairIndexFrom(int From);
 };

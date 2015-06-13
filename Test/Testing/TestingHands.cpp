@@ -34,4 +34,10 @@ TEST_CASE("Testing Hands")
 		Hand Hand = HandBuilder::build("Black: 4H 3D 6S 2C 5D");
 		CHECK(Hand.Play() == STRAIGHT);
 	}
+
+	SECTION("Flush")
+	{
+		Hand Hand = HandBuilder::build("Black: 4H 3H 6H 2H 5H");
+		CHECK(Hand.Play() == FLUSH);
+	}
 }
