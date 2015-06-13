@@ -5,9 +5,9 @@
 
 class Result
 {
-	std::string Output;
+	std::string output;
 
 public:
 	
-	std::string GetOutput();
+	std::string Output();
 };

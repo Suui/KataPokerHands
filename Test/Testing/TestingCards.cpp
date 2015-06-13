@@ -1,19 +1,21 @@
 #include "../TestRunner/catch.hpp"
-#include "../../Source/HandBuilder.h"
-#include "../../Source/Hand.h"
+#include "../../Source/Hand/Hand.h"
+#include "../../Source/Hand/HandBuilder.h"
+#include "../../Source/Card/Card.h"
+
 
 TEST_CASE("Testing Cards")
 {
-	SECTION("Hand Color is Black")
+	SECTION("Hand color is Black")
 	{
 		Hand Hand = HandBuilder::build("Black: 2H 3D 5S 9C KD");
-		CHECK(Hand.GetColor() == Color::BLACK);
+		CHECK(Hand.Color() == Color::BLACK);
 	}
 
-	SECTION("Hand Color is White")
+	SECTION("Hand color is White")
 	{
 		Hand Hand = HandBuilder::build("White: 2C 3H 4S 8C AH");
-		CHECK(Hand.GetColor() == Color::WHITE);
+		CHECK(Hand.Color() == Color::WHITE);
 	}
 
 	SECTION("Number of cards in hand equals 5")
@@ -34,8 +36,8 @@ TEST_CASE("Testing Cards")
 		REQUIRE(Hand.GetCards().size() == Cards.size());
 		for (unsigned int i = 0; i < Cards.size(); ++i)
 		{
-			CHECK(Cards.at(i).GetValue() == Hand.GetCards().at(i).GetValue());
-			CHECK(Cards.at(i).GetSuit() == Hand.GetCards().at(i).GetSuit());
+			CHECK(Cards.at(i).Value() == Hand.GetCards().at(i).Value());
+			CHECK(Cards.at(i).Suit() == Hand.GetCards().at(i).Suit());
 		}
 	}
 }

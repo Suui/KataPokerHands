@@ -23,13 +23,13 @@
     <ClCompile Include="TestRunner\TestRunner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Testing\TestCards.cpp">
+    <ClCompile Include="Testing\TestingCards.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Testing\TestGames.cpp">
+    <ClCompile Include="Testing\TestingGames.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Testing\TestHands.cpp">
+    <ClCompile Include="Testing\TestingHands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

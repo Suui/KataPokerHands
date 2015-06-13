@@ -7,5 +7,5 @@ class Game
 {
 public:
 	
-	static Result Play(std::string Input);
+	static Result Play(std::string input);
 };

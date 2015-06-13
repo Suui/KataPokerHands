@@ -1,6 +1,8 @@
 ﻿#pragma once
-#include "Card.h"
+
+#include "../Card/Card.h"
 #include <vector>
+
 
 enum Color
 {
@@ -26,17 +28,17 @@ enum Play
 
 class Hand
 {
-	Color Color;
-	Play Play;
-	std::vector<Card> Cards;
+	Color color;
+	Play play;
+	std::vector<Card> cards;
 
 public:
 
-	Hand(::Color Color, std::vector<Card> Cards);
+	Hand(Color Color, std::vector<Card> cards);
 
-	::Color GetColor() const;
+	Color Color() const;
 
-	::Play GetPlay();
+	Play Play();
 
 	std::vector<Card> GetCards();
 };

@@ -11,22 +11,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Card.cpp" />
-    <ClCompile Include="CardParser.cpp" />
-    <ClCompile Include="Hand.cpp" />
-    <ClCompile Include="HandBuilder.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="PlayParser.cpp" />
-    <ClCompile Include="Result.cpp" />
+    <ClCompile Include="Card\Card.cpp" />
+    <ClCompile Include="Card\CardParser.cpp" />
+    <ClCompile Include="Hand\Hand.cpp" />
+    <ClCompile Include="Hand\HandBuilder.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Hand\PlayParser.cpp" />
+    <ClCompile Include="Game\Result.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Card.h" />
-    <ClInclude Include="CardParser.h" />
-    <ClInclude Include="Hand.h" />
-    <ClInclude Include="HandBuilder.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="PlayParser.h" />
-    <ClInclude Include="Result.h" />
+    <ClInclude Include="Card\Card.h" />
+    <ClInclude Include="Card\CardParser.h" />
+    <ClInclude Include="Hand\Hand.h" />
+    <ClInclude Include="Hand\HandBuilder.h" />
+    <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Hand\PlayParser.h" />
+    <ClInclude Include="Game\Result.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{02B79BA0-0863-4D59-B372-B36943EED22A}</ProjectGuid>

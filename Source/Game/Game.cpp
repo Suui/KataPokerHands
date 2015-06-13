@@ -1,7 +1,7 @@
 ﻿#include "Game.h"
 
 
-Result Game::Play(std::string Input)
+Result Game::Play(std::string input)
 {
 
 	return Result();
