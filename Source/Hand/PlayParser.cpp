@@ -60,7 +60,6 @@ bool PlayParser::CheckFlush()
 bool PlayParser::CheckFullHouse()
 {
 	auto valueAndQuantity = GetCardsOfAKindValueAndQuantity();
-	if (valueAndQuantity.Quantity() == 2) return GetCardsOfAKindValueAndQuantity(valueAndQuantity.Value()).Quantity() == 3;
 	if (valueAndQuantity.Quantity() == 3) return GetCardsOfAKindValueAndQuantity(valueAndQuantity.Value()).Quantity() == 2;
 	return false;
 }
