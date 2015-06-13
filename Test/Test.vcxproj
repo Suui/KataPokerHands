@@ -81,9 +81,9 @@
     <ClInclude Include="TestRunner\catch.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Testing\TestCards.cpp" />
-    <ClCompile Include="Testing\TestGames.cpp" />
-    <ClCompile Include="Testing\TestHands.cpp" />
+    <ClCompile Include="Testing\TestingCards.cpp" />
+    <ClCompile Include="Testing\TestingGames.cpp" />
+    <ClCompile Include="Testing\TestingHands.cpp" />
     <ClCompile Include="TestRunner\TestRunner.cpp" />
   </ItemGroup>
   <ItemGroup>

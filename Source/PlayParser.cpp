@@ -38,7 +38,7 @@ bool PlayParser::CheckThreeOfAKind(std::vector<Card> Card)
 
 int PlayParser::GetPairIndexFrom(int From, std::vector<Card> Cards)
 {
-	for (unsigned int i = From; i < Cards.size() - 1; ++i)
+	for (unsigned i = From; i < Cards.size() - 1; ++i)
 	{
 		auto Compared = Cards.at(i);
 		for (unsigned int j = i + 1; j < Cards.size(); ++j)
