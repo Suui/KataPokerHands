@@ -88,30 +88,3 @@ ValueAndQuantity PlayParser::GetValueAndQuantityForTheMostRepeatedCard(int ignor
 	}
 	return ValueAndQuantity(value, maxQuantity);
 }
-
-
-int PlayParser::GetTwoOfAKindCardValue(int ignoredCardValue)
-{
-	for (unsigned i = 0; i < cards.size() - 1; ++i)
-	{
-		auto Compared = cards[i];
-		for (unsigned j = i + 1; j < cards.size(); ++j)
-			if (cards[j].Value() != ignoredCardValue && cards[j].Value() == Compared.Value()) return Compared.Value();
-	}
-	return -1;
-}
-
-
-int PlayParser::GetThreeOfAKindCardValue()
-{
-	unsigned c = 0;
-	for (unsigned i = 0; i < cards.size() - 1; ++i)
-	{
-		auto Compared = cards[i];
-		for (unsigned j = i + 1; j < cards.size(); ++j)
-			if (cards[j].Value() == Compared.Value()) c++;
-		if (c == 2) return Compared.Value();
-		c = 0;
-	}
-	return -1;
-}

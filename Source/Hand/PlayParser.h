@@ -44,8 +44,4 @@ public:
 	bool CheckFourOfAKind();
 
 	ValueAndQuantity GetValueAndQuantityForTheMostRepeatedCard(int ignoredCardValue = 0);
-
-	int GetTwoOfAKindCardValue(int ignoredCardValue = 0);
-
-	int GetThreeOfAKindCardValue();
 };
