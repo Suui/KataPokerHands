@@ -37,7 +37,7 @@ TEST_CASE("Testing Hands")
 
 	SECTION("Flush")
 	{
-		Hand Hand = HandBuilder::build("Black: 4H 3H 6H 2H 5H");
+		Hand Hand = HandBuilder::build("Black: TH 3H KH 2H 8H");
 		CHECK(Hand.Play() == FLUSH);
 	}
 
