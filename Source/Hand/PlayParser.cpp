@@ -33,7 +33,7 @@ bool PlayParser::CheckTwoPair()
 
 bool PlayParser::CheckThreeOfAKind()
 {
-	return GetThreeOfAKindCardValue() != -1;
+	return GetValueAndQuantityForTheMostRepeatedCard().Quantity() == 3;
 }
 
 
