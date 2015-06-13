@@ -19,7 +19,7 @@ Play PlayParser::Parse(std::vector<Card> cards)
 
 bool PlayParser::CheckOnePair()
 {
-	return GetTwoOfAKindCardValue() != -1;
+	return GetValueAndQuantityForTheMostRepeatedCard().Quantity() == 2;
 }
 
 
