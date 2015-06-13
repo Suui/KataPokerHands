@@ -25,8 +25,8 @@ bool PlayParser::CheckOnePair()
 
 bool PlayParser::CheckTwoPair()
 {
-	int cardValue = GetTwoOfAKindCardValue();
-	if (cardValue != -1) return GetTwoOfAKindCardValue(cardValue) != -1;
+	auto valueAndQuantity = GetValueAndQuantityForTheMostRepeatedCard();
+	if (valueAndQuantity.Quantity() == 2) return GetValueAndQuantityForTheMostRepeatedCard(valueAndQuantity.Value()).Quantity() == 2;
 	return false;
 }
 
