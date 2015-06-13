@@ -7,21 +7,21 @@ Card CardParser::Parse(char Value, char Suit)
 }
 
 
-int CardParser::ParseValue(char Value)
+int CardParser::ParseValue(char value)
 {
-	if (Value == 'T') return 10;
-	if (Value == 'J') return 11;
-	if (Value == 'Q') return 12;
-	if (Value == 'K') return 13;
-	if (Value == 'A') return 14;
-	return Value - '0';
+	if (value == 'T') return 10;
+	if (value == 'J') return 11;
+	if (value == 'Q') return 12;
+	if (value == 'K') return 13;
+	if (value == 'A') return 14;
+	return value - '0';
 }
 
 
-Suit CardParser::ParseSuit(char Suit)
+Suit CardParser::ParseSuit(char suit)
 {
-	if (Suit == 'C') return CLUBS;
-	if (Suit == 'D') return DIAMONDS;
-	if (Suit == 'H') return HEARTS;
+	if (suit == 'C') return CLUBS;
+	if (suit == 'D') return DIAMONDS;
+	if (suit == 'H') return HEARTS;
 	return SPADES;
 }

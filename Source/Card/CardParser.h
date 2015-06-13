@@ -7,9 +7,9 @@ class CardParser
 {
 public:
 
-	static Card Parse(char Value, char Suit);
+	static Card Parse(char value, char suit);
 
-	static int ParseValue(char Value);
+	static int ParseValue(char value);
 
-	static Suit ParseSuit(char Suit);
+	static Suit ParseSuit(char suit);
 };
