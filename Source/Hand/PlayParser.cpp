@@ -46,7 +46,11 @@ bool PlayParser::CheckThreeOfAKind()
 bool PlayParser::CheckStraight()
 {
 	sort(cards.begin(), cards.end());
-	return false;
+
+	for (unsigned i = 1; i < cards.size(); ++i)
+		if (cards[i].Value() - 1 != cards[i - 1].Value()) return false;
+
+	return true;
 }
 
 

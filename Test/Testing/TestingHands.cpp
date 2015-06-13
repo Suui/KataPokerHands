@@ -31,7 +31,7 @@ TEST_CASE("Testing Hands")
 
 	SECTION("Straight")
 	{
-		Hand Hand = HandBuilder::build("Black: 2H 3D 4S 5C 6D");
+		Hand Hand = HandBuilder::build("Black: 4H 3D 6S 2C 5D");
 		CHECK(Hand.Play() == STRAIGHT);
 	}
 }
