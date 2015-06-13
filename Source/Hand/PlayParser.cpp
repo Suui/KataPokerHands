@@ -3,28 +3,30 @@
 
 Play PlayParser::Parse(std::vector<Card> cards)
 {
-	if (CheckThreeOfAKind(cards)) return THREE_OF_A_KIND;
-	if (CheckTwoPair(cards)) return TWO_PAIR;
-	if (CheckOnePair(cards)) return ONE_PAIR;
+	this->cards = cards;
+
+	if (CheckThreeOfAKind()) return THREE_OF_A_KIND;
+	if (CheckTwoPair()) return TWO_PAIR;
+	if (CheckOnePair()) return ONE_PAIR;
 	return HIGH_CARD;
 }
 
 
-bool PlayParser::CheckOnePair(std::vector<Card> cards)
+bool PlayParser::CheckOnePair()
 {
-	return GetPairIndexFrom(0, cards) != -1;
+	return GetPairIndexFrom(0) != -1;
 }
 
 
-bool PlayParser::CheckTwoPair(std::vector<Card> cards)
+bool PlayParser::CheckTwoPair()
 {
-	int FirstPair = GetPairIndexFrom(0, cards);
+	int FirstPair = GetPairIndexFrom(0);
 	if (FirstPair == -1) return false;
-	return GetPairIndexFrom(FirstPair, cards) != -1;
+	return GetPairIndexFrom(FirstPair) != -1;
 }
 
 
-bool PlayParser::CheckThreeOfAKind(std::vector<Card> cards)
+bool PlayParser::CheckThreeOfAKind()
 {
 	unsigned c = 0;
 	for (unsigned i = 0; i < cards.size() - 1; ++i)
@@ -39,7 +41,7 @@ bool PlayParser::CheckThreeOfAKind(std::vector<Card> cards)
 }
 
 
-int PlayParser::GetPairIndexFrom(int From, std::vector<Card> cards)
+int PlayParser::GetPairIndexFrom(int From)
 {
 	for (unsigned i = From; i < cards.size() - 1; ++i)
 	{

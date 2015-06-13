@@ -7,7 +7,7 @@ Hand::Hand(::Color Color, std::vector<Card> cards)
 {
 	this->color = Color;
 	this->cards = cards;
-	this->play = PlayParser::Parse(cards);
+	this->play = PlayParser().Parse(cards);
 }
 
 

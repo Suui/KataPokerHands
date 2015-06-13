@@ -5,16 +5,18 @@
 
 class PlayParser
 {
+	std::vector<Card> cards;
+
 
 public:
 
-	static Play Parse(std::vector<Card> cards);
-	
-	static bool CheckOnePair(std::vector<Card> cards);
-	
-	static bool CheckTwoPair(std::vector<Card> cards);
+	Play Parse(std::vector<Card> cards);
 
-	static bool CheckThreeOfAKind(std::vector<Card> cards);
+	bool CheckOnePair();
 
-	static int GetPairIndexFrom(int From, std::vector<Card> cards);
+	bool CheckTwoPair();
+
+	bool CheckThreeOfAKind();
+
+	int GetPairIndexFrom(int From);
 };
