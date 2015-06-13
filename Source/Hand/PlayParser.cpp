@@ -6,6 +6,8 @@ Play PlayParser::Parse(std::vector<Card> cards)
 {
 	this->cards = cards;
 
+	SortCardsByValue();
+	if (CheckStraightFlush())	return STRAIGHT_FLUSH;
 	if (CheckFourOfAKind())		return FOUR_OF_A_KIND;
 	if (CheckFullHouse())		return FULL_HOUSE;
 	if (CheckFlush())			return FLUSH;
@@ -39,8 +41,6 @@ bool PlayParser::CheckThreeOfAKind()
 
 bool PlayParser::CheckStraight()
 {
-	sort(cards.begin(), cards.end());
-
 	for (unsigned i = 1; i < cards.size(); ++i)
 		if (cards[i].Value() - 1 != cards[i - 1].Value()) return false;
 
@@ -71,6 +71,15 @@ bool PlayParser::CheckFourOfAKind()
 }
 
 
+bool PlayParser::CheckStraightFlush()
+{
+	for (unsigned i = 1; i < cards.size(); ++i)
+		if (cards[i].Suit() != cards[i - 1].Suit() || cards[i].Value() - 1 != cards[i - 1].Value()) return false;
+
+	return true;
+}
+
+
 ValueAndQuantity PlayParser::GetValueAndQuantityForTheMostRepeatedCard(int ignoredCardValue)
 {
 	unsigned quantity = 1, maxQuantity = 1, value = 0;
@@ -87,4 +96,10 @@ ValueAndQuantity PlayParser::GetValueAndQuantityForTheMostRepeatedCard(int ignor
 		quantity = 1;
 	}
 	return ValueAndQuantity(value, maxQuantity);
+}
+
+
+void PlayParser::SortCardsByValue()
+{
+	sort(cards.begin(), cards.end());
 }

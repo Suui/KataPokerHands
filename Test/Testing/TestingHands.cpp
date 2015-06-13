@@ -52,4 +52,10 @@ TEST_CASE("Testing Hands")
 		Hand Hand = HandBuilder::build("Black: 7H AD 7C 7S 7D");
 		CHECK(Hand.Play() == FOUR_OF_A_KIND);
 	}
+
+	SECTION("Straight Flush")
+	{
+		Hand Hand = HandBuilder::build("Black: TH 7H 9H 8H 6H");
+		CHECK(Hand.Play() == STRAIGHT_FLUSH);
+	}
 }

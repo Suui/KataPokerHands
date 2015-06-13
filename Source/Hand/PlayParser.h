@@ -43,5 +43,9 @@ public:
 
 	bool CheckFourOfAKind();
 
+	bool CheckStraightFlush();
+
 	ValueAndQuantity GetValueAndQuantityForTheMostRepeatedCard(int ignoredCardValue = 0);
+
+	void SortCardsByValue();
 };
