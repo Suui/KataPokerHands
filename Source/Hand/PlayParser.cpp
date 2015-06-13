@@ -42,19 +42,13 @@ bool PlayParser::CheckThreeOfAKind()
 
 bool PlayParser::CheckStraight()
 {
-	for (unsigned i = 1; i < cards.size(); ++i)
-		if (cards[i].Value() - 1 != cards[i - 1].Value()) return false;
-
-	return true;
+	return CardsAreStraight();
 }
 
 
 bool PlayParser::CheckFlush()
 {
-	for (unsigned i = 1; i < cards.size(); ++i)
-		if (cards[i].Suit() != cards[i - 1].Suit()) return false;
-
-	return true;
+	return AllCardsAreTheSameColor();
 }
 
 
@@ -74,17 +68,14 @@ bool PlayParser::CheckFourOfAKind()
 
 bool PlayParser::CheckStraightFlush()
 {
-	for (unsigned i = 1; i < cards.size(); ++i)
-		if (cards[i].Suit() != cards[i - 1].Suit() || cards[i].Value() - 1 != cards[i - 1].Value()) return false;
-
-	return true;
+	return CardsAreStraight() && AllCardsAreTheSameColor();
 }
 
 
 bool PlayParser::CheckRoyalFlush()
 {
 	if (cards[0].Value() < 10) return false;
-	return CheckFlush();
+	return AllCardsAreTheSameColor();
 }
 
 
@@ -93,9 +84,9 @@ ValueAndQuantity PlayParser::GetValueAndQuantityForTheMostRepeatedCard(int ignor
 	unsigned quantity = 1, maxQuantity = 1, value = 0;
 	for (unsigned i = 0; i < cards.size() - 1; ++i)
 	{
-		auto Compared = cards[i];
+		auto compared = cards[i];
 		for (unsigned j = i + 1; j < cards.size(); ++j)
-			if (cards[j].Value() != ignoredCardValue && cards[j].Value() == Compared.Value()) ++quantity;
+			if (cards[j].Value() != ignoredCardValue && cards[j].Value() == compared.Value()) ++quantity;
 		if (quantity > maxQuantity)
 		{
 			value = cards[i].Value();
@@ -104,6 +95,24 @@ ValueAndQuantity PlayParser::GetValueAndQuantityForTheMostRepeatedCard(int ignor
 		quantity = 1;
 	}
 	return ValueAndQuantity(value, maxQuantity);
+}
+
+
+bool PlayParser::CardsAreStraight()
+{
+	for (unsigned i = 1; i < cards.size(); ++i)
+		if (cards[i].Value() - 1 != cards[i - 1].Value()) return false;
+
+	return true;
+}
+
+
+bool PlayParser::AllCardsAreTheSameColor()
+{
+	for (unsigned i = 1; i < cards.size(); ++i)
+		if (cards[i].Suit() != cards[i - 1].Suit()) return false;
+
+	return true;
 }
 
 

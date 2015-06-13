@@ -49,5 +49,9 @@ public:
 
 	ValueAndQuantity GetValueAndQuantityForTheMostRepeatedCard(int ignoredCardValue = 0);
 
+	bool AllCardsAreTheSameColor();
+
+	bool CardsAreStraight();
+
 	void SortCardsByValue();
 };
