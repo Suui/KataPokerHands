@@ -6,13 +6,14 @@ Play PlayParser::Parse(std::vector<Card> cards)
 {
 	this->cards = cards;
 
-	if (CheckFullHouse()) return FULL_HOUSE;
-	if (CheckFlush()) return FLUSH;
-	if (CheckStraight()) return STRAIGHT;
-	if (CheckThreeOfAKind()) return THREE_OF_A_KIND;
-	if (CheckTwoPair()) return TWO_PAIR;
-	if (CheckOnePair()) return ONE_PAIR;
-	return HIGH_CARD;
+	if (CheckFourOfAKind())		return FOUR_OF_A_KIND;
+	if (CheckFullHouse())		return FULL_HOUSE;
+	if (CheckFlush())			return FLUSH;
+	if (CheckStraight())		return STRAIGHT;
+	if (CheckThreeOfAKind())	return THREE_OF_A_KIND;
+	if (CheckTwoPair())			return TWO_PAIR;
+	if (CheckOnePair())			return ONE_PAIR;
+								return HIGH_CARD;
 }
 
 
@@ -61,6 +62,31 @@ bool PlayParser::CheckFullHouse()
 	int cardValue = GetThreeOfAKindCardValue();
 	if (cardValue != -1) return GetTwoOfAKindCardValue(cardValue) != -1;
 	return false;
+}
+
+
+bool PlayParser::CheckFourOfAKind()
+{
+	return GetCardsOfAKindQuantityAndValue().Quantity() == 4;
+}
+
+
+ValueAndQuantity PlayParser::GetCardsOfAKindQuantityAndValue(int ignoredCardValue)
+{
+	unsigned quantity = 1, maxQuantity = 1, value = 0;
+	for (unsigned i = 0; i < cards.size() - 1; ++i)
+	{
+		auto Compared = cards[i];
+		for (unsigned j = i + 1; j < cards.size(); ++j)
+			if (cards[j].Value() != ignoredCardValue && cards[j].Value() == Compared.Value()) ++quantity;
+		if (quantity > maxQuantity)
+		{
+			value = cards[i].Value();
+			maxQuantity = quantity;
+		}
+		quantity = 1;
+	}
+	return ValueAndQuantity(value, maxQuantity);
 }
 
 

@@ -46,4 +46,10 @@ TEST_CASE("Testing Hands")
 		Hand Hand = HandBuilder::build("Black: 7H AD 7C AH 7D");
 		CHECK(Hand.Play() == FULL_HOUSE);
 	}
+
+	SECTION("Four of a Kind")
+	{
+		Hand Hand = HandBuilder::build("Black: 7H AD 7C 7S 7D");
+		CHECK(Hand.Play() == FOUR_OF_A_KIND);
+	}
 }
