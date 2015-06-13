@@ -6,6 +6,7 @@ Card CardParser::Parse(char Value, char Suit)
 	return Card(ParseValue(Value), ParseSuit(Suit));
 }
 
+
 int CardParser::ParseValue(char Value)
 {
 	if (Value == 'T') return 10;

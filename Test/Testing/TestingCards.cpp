@@ -1,6 +1,8 @@
 #include "../TestRunner/catch.hpp"
-#include "../../Source/HandBuilder.h"
-#include "../../Source/Hand.h"
+#include "../../Source/Hand/Hand.h"
+#include "../../Source/Hand/HandBuilder.h"
+#include "../../Source/Card/Card.h"
+
 
 TEST_CASE("Testing Cards")
 {

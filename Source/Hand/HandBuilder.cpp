@@ -1,6 +1,6 @@
 ﻿#include "HandBuilder.h"
 #include "Hand.h"
-#include "CardParser.h"
+#include "../Card/CardParser.h"
 
 
 Hand HandBuilder::build(std::string Input)

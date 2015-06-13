@@ -1,4 +1,5 @@
 ﻿#include "Hand.h"
+#include "../Card/Card.h"
 #include "PlayParser.h"
 
 

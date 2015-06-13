@@ -1,6 +1,6 @@
 #include "../TestRunner/catch.hpp"
-#include "../../Source/Hand.h"
-#include "../../Source/HandBuilder.h"
+#include "../../Source/Hand/Hand.h"
+#include "../../Source/Hand/HandBuilder.h"
 
 
 TEST_CASE("Testing Hands")

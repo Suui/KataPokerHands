@@ -1,6 +1,8 @@
 ﻿#pragma once
-#include "Card.h"
+
+#include "../Card/Card.h"
 #include <vector>
+
 
 enum Color
 {

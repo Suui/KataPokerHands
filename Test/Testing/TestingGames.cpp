@@ -1,6 +1,5 @@
 #include "../TestRunner/catch.hpp"
-#include "../../Source/Result.h"
-#include "../../Source/Game.h"
+#include "../../Source/Game/Game.h"
 
 
 TEST_CASE("Testing Games")
