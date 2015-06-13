@@ -45,6 +45,8 @@ public:
 
 	bool CheckStraightFlush();
 
+	bool CheckRoyalFlush();
+
 	ValueAndQuantity GetValueAndQuantityForTheMostRepeatedCard(int ignoredCardValue = 0);
 
 	void SortCardsByValue();

@@ -7,6 +7,7 @@ Play PlayParser::Parse(std::vector<Card> cards)
 	this->cards = cards;
 
 	SortCardsByValue();
+	if (CheckRoyalFlush())		return ROYAL_FLUSH;
 	if (CheckStraightFlush())	return STRAIGHT_FLUSH;
 	if (CheckFourOfAKind())		return FOUR_OF_A_KIND;
 	if (CheckFullHouse())		return FULL_HOUSE;
@@ -77,6 +78,13 @@ bool PlayParser::CheckStraightFlush()
 		if (cards[i].Suit() != cards[i - 1].Suit() || cards[i].Value() - 1 != cards[i - 1].Value()) return false;
 
 	return true;
+}
+
+
+bool PlayParser::CheckRoyalFlush()
+{
+	if (cards[0].Value() < 10) return false;
+	return CheckFlush();
 }
 
 

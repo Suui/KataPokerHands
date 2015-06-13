@@ -58,4 +58,10 @@ TEST_CASE("Testing Hands")
 		Hand Hand = HandBuilder::build("Black: TH 7H 9H 8H 6H");
 		CHECK(Hand.Play() == STRAIGHT_FLUSH);
 	}
+
+	SECTION("Royal Flush")
+	{
+		Hand Hand = HandBuilder::build("Black: TH JH AH KH QH");
+		CHECK(Hand.Play() == ROYAL_FLUSH);
+	}
 }
