@@ -1,16 +1,16 @@
 ﻿#include "Card.h"
 
 
-Card::Card(int Value, ::Suit Suit): Value(Value), Suit(Suit) {}
+Card::Card(int value, ::Suit suit): value(value), suit(suit) {}
 
 
-int Card::GetValue()
+int Card::Value()
 {
-	return Value;
+	return value;
 }
 
 
-Suit Card::GetSuit()
+Suit Card::Suit()
 {
-	return Suit;
+	return suit;
 }

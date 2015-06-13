@@ -12,15 +12,15 @@ enum Suit
 
 class Card
 {
-	int Value;
-	Suit Suit;
+	int value;
+	Suit suit;
 
 
 public:
 
-	Card(int Value, ::Suit Suit);
+	Card(int value, Suit suit);
 
-	int GetValue();
+	int Value();
 
-	::Suit GetSuit();
+	Suit Suit();
 };

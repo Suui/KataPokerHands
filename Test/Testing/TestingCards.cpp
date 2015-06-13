@@ -36,8 +36,8 @@ TEST_CASE("Testing Cards")
 		REQUIRE(Hand.GetCards().size() == Cards.size());
 		for (unsigned int i = 0; i < Cards.size(); ++i)
 		{
-			CHECK(Cards.at(i).GetValue() == Hand.GetCards().at(i).GetValue());
-			CHECK(Cards.at(i).GetSuit() == Hand.GetCards().at(i).GetSuit());
+			CHECK(Cards.at(i).Value() == Hand.GetCards().at(i).Value());
+			CHECK(Cards.at(i).Suit() == Hand.GetCards().at(i).Suit());
 		}
 	}
 }
