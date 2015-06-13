@@ -1,10 +1,12 @@
 ﻿#include "PlayParser.h"
+#include <algorithm>
 
 
 Play PlayParser::Parse(std::vector<Card> cards)
 {
 	this->cards = cards;
 
+	if (CheckStraight()) return STRAIGHT;
 	if (CheckThreeOfAKind()) return THREE_OF_A_KIND;
 	if (CheckTwoPair()) return TWO_PAIR;
 	if (CheckOnePair()) return ONE_PAIR;
@@ -34,9 +36,16 @@ bool PlayParser::CheckThreeOfAKind()
 		auto Compared = cards.at(i);
 		for (unsigned j = i + 1; j < cards.size(); ++j)
 			if (cards[j].Value() == Compared.Value()) c++;
-		if (c == 3) return true;
+		if (c == 2) return true;
 		c = 0;
 	}
+	return false;
+}
+
+
+bool PlayParser::CheckStraight()
+{
+	sort(cards.begin(), cards.end());
 	return false;
 }
 

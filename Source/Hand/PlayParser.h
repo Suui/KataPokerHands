@@ -18,5 +18,7 @@ public:
 
 	bool CheckThreeOfAKind();
 
+	bool CheckStraight();
+
 	int GetPairIndexFrom(int From);
 };
