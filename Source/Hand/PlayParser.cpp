@@ -59,19 +59,20 @@ bool PlayParser::CheckFlush()
 
 bool PlayParser::CheckFullHouse()
 {
-	int cardValue = GetThreeOfAKindCardValue();
-	if (cardValue != -1) return GetTwoOfAKindCardValue(cardValue) != -1;
+	auto valueAndQuantity = GetCardsOfAKindValueAndQuantity();
+	if (valueAndQuantity.Quantity() == 2) return GetCardsOfAKindValueAndQuantity(valueAndQuantity.Value()).Quantity() == 3;
+	if (valueAndQuantity.Quantity() == 3) return GetCardsOfAKindValueAndQuantity(valueAndQuantity.Value()).Quantity() == 2;
 	return false;
 }
 
 
 bool PlayParser::CheckFourOfAKind()
 {
-	return GetCardsOfAKindQuantityAndValue().Quantity() == 4;
+	return GetCardsOfAKindValueAndQuantity().Quantity() == 4;
 }
 
 
-ValueAndQuantity PlayParser::GetCardsOfAKindQuantityAndValue(int ignoredCardValue)
+ValueAndQuantity PlayParser::GetCardsOfAKindValueAndQuantity(int ignoredCardValue)
 {
 	unsigned quantity = 1, maxQuantity = 1, value = 0;
 	for (unsigned i = 0; i < cards.size() - 1; ++i)

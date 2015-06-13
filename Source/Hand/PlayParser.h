@@ -43,7 +43,7 @@ public:
 
 	bool CheckFourOfAKind();
 
-	ValueAndQuantity GetCardsOfAKindQuantityAndValue(int ignoredCardValue = 0);
+	ValueAndQuantity GetCardsOfAKindValueAndQuantity(int ignoredCardValue = 0);
 
 	int GetTwoOfAKindCardValue(int ignoredCardValue = 0);
 
