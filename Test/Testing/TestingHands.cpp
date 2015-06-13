@@ -40,4 +40,10 @@ TEST_CASE("Testing Hands")
 		Hand Hand = HandBuilder::build("Black: 4H 3H 6H 2H 5H");
 		CHECK(Hand.Play() == FLUSH);
 	}
+
+	SECTION("Full House")
+	{
+		Hand Hand = HandBuilder::build("Black: 7H AD 7C AH 7D");
+		CHECK(Hand.Play() == FULL_HOUSE);
+	}
 }

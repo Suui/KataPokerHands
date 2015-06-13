@@ -22,5 +22,9 @@ public:
 
 	bool CheckFlush();
 
-	int GetPairIndexFrom(int From);
+	bool CheckFullHouse();
+
+	int GetTwoOfAKindCardValue(int ignoredCardValue = 0);
+
+	int GetThreeOfAKindCardValue();
 };

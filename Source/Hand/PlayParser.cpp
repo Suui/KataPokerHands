@@ -6,6 +6,7 @@ Play PlayParser::Parse(std::vector<Card> cards)
 {
 	this->cards = cards;
 
+	if (CheckFullHouse()) return FULL_HOUSE;
 	if (CheckFlush()) return FLUSH;
 	if (CheckStraight()) return STRAIGHT;
 	if (CheckThreeOfAKind()) return THREE_OF_A_KIND;
@@ -17,30 +18,21 @@ Play PlayParser::Parse(std::vector<Card> cards)
 
 bool PlayParser::CheckOnePair()
 {
-	return GetPairIndexFrom(0) != -1;
+	return GetTwoOfAKindCardValue() != -1;
 }
 
 
 bool PlayParser::CheckTwoPair()
 {
-	int FirstPair = GetPairIndexFrom(0);
-	if (FirstPair == -1) return false;
-	return GetPairIndexFrom(FirstPair) != -1;
+	int cardValue = GetTwoOfAKindCardValue();
+	if (cardValue != -1) return GetTwoOfAKindCardValue(cardValue) != -1;
+	return false;
 }
 
 
 bool PlayParser::CheckThreeOfAKind()
 {
-	unsigned c = 0;
-	for (unsigned i = 0; i < cards.size() - 1; ++i)
-	{
-		auto Compared = cards.at(i);
-		for (unsigned j = i + 1; j < cards.size(); ++j)
-			if (cards[j].Value() == Compared.Value()) c++;
-		if (c == 2) return true;
-		c = 0;
-	}
-	return false;
+	return GetThreeOfAKindCardValue() != -1;
 }
 
 
@@ -64,13 +56,36 @@ bool PlayParser::CheckFlush()
 }
 
 
-int PlayParser::GetPairIndexFrom(int From)
+bool PlayParser::CheckFullHouse()
 {
-	for (unsigned i = From; i < cards.size() - 1; ++i)
+	int cardValue = GetThreeOfAKindCardValue();
+	if (cardValue != -1) return GetTwoOfAKindCardValue(cardValue) != -1;
+	return false;
+}
+
+
+int PlayParser::GetTwoOfAKindCardValue(int ignoredCardValue)
+{
+	for (unsigned i = 0; i < cards.size() - 1; ++i)
 	{
-		auto Compared = cards.at(i);
+		auto Compared = cards[i];
 		for (unsigned j = i + 1; j < cards.size(); ++j)
-			if (cards.at(j).Value() == Compared.Value()) return ++i;
+			if (cards[j].Value() != ignoredCardValue && cards[j].Value() == Compared.Value()) return Compared.Value();
+	}
+	return -1;
+}
+
+
+int PlayParser::GetThreeOfAKindCardValue()
+{
+	unsigned c = 0;
+	for (unsigned i = 0; i < cards.size() - 1; ++i)
+	{
+		auto Compared = cards[i];
+		for (unsigned j = i + 1; j < cards.size(); ++j)
+			if (cards[j].Value() == Compared.Value()) c++;
+		if (c == 2) return Compared.Value();
+		c = 0;
 	}
 	return -1;
 }
