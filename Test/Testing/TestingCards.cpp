@@ -6,16 +6,16 @@
 
 TEST_CASE("Testing Cards")
 {
-	SECTION("Hand Color is Black")
+	SECTION("Hand color is Black")
 	{
 		Hand Hand = HandBuilder::build("Black: 2H 3D 5S 9C KD");
-		CHECK(Hand.GetColor() == Color::BLACK);
+		CHECK(Hand.Color() == Color::BLACK);
 	}
 
-	SECTION("Hand Color is White")
+	SECTION("Hand color is White")
 	{
 		Hand Hand = HandBuilder::build("White: 2C 3H 4S 8C AH");
-		CHECK(Hand.GetColor() == Color::WHITE);
+		CHECK(Hand.Color() == Color::WHITE);
 	}
 
 	SECTION("Number of cards in hand equals 5")

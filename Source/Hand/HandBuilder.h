@@ -10,5 +10,5 @@ class HandBuilder
 
 public:
 	
-	static Hand build(std::string Input);
+	static Hand build(std::string input);
 };

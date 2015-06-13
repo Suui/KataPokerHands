@@ -3,27 +3,27 @@
 #include "PlayParser.h"
 
 
-Hand::Hand(::Color Color, std::vector<Card> Cards)
+Hand::Hand(::Color Color, std::vector<Card> cards)
 {
-	this->Color = Color;
-	this->Cards = Cards;
-	this->Play = PlayParser::Parse(Cards);
+	this->color = Color;
+	this->cards = cards;
+	this->play = PlayParser::Parse(cards);
 }
 
 
-Color Hand::GetColor() const
+Color Hand::Color() const
 {
-	return Color;
+	return color;
 }
 
 
-Play Hand::GetPlay()
+Play Hand::Play()
 {
-	return Play;
+	return play;
 }
 
 
 std::vector<Card> Hand::GetCards()
 {
-	return Cards;
+	return cards;
 }
