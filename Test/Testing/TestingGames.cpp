@@ -2,11 +2,13 @@
 #include "../../Source/Game/Game.h"
 
 
-TEST_CASE("Testing Games")
+SCENARIO("Testing Games")
 {
-	SECTION("Game with two High Cards")
+	GIVEN("An input of two Highest Cards")
 	{
-		Result Result = Game::Play("Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH");
-		CHECK(Result.Output() == "White wins. - with high card: Ace");
+		Result result = Game().Play("Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH");
+		CHECK(result.Winner().Color() == WHITE);
+		CHECK(result.Winner().Play() == HIGH_CARD);
 	}
+	
 }

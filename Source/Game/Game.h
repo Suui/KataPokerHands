@@ -1,11 +1,17 @@
 ﻿#pragma once
 
 #include "Result.h"
+#include "../Hand/Hand.h"
 
 
 class Game
 {
+	Hand blackHand;
+	Hand whiteHand;
+
 public:
+
+	Game();
 	
-	static Result Play(std::string input);
+	Result Play(std::string input);
 };

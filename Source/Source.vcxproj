@@ -13,6 +13,8 @@
   <ItemGroup>
     <ClCompile Include="Card\Card.cpp" />
     <ClCompile Include="Card\CardParser.cpp" />
+    <ClCompile Include="Game\HandComparer.cpp" />
+    <ClCompile Include="Game\InputParser.cpp" />
     <ClCompile Include="Hand\Hand.cpp" />
     <ClCompile Include="Hand\HandBuilder.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -22,6 +24,8 @@
   <ItemGroup>
     <ClInclude Include="Card\Card.h" />
     <ClInclude Include="Card\CardParser.h" />
+    <ClInclude Include="Game\HandComparer.h" />
+    <ClInclude Include="Game\InputParser.h" />
     <ClInclude Include="Hand\Hand.h" />
     <ClInclude Include="Hand\HandBuilder.h" />
     <ClInclude Include="Game\Game.h" />

@@ -34,6 +34,8 @@ class Hand
 
 public:
 
+	Hand();
+
 	Hand(Color Color, std::vector<Card> cards);
 
 	Color Color() const;

@@ -20,7 +20,6 @@ public:
 
 	Card(int value, Suit suit);
 
-
 	friend bool operator < (const Card& first, const Card& second);
 
 	int Value();

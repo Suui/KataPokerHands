@@ -3,6 +3,9 @@
 #include "PlayParser.h"
 
 
+Hand::Hand() {}
+
+
 Hand::Hand(::Color Color, std::vector<Card> cards)
 {
 	this->color = Color;
