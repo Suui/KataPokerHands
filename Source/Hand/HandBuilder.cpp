@@ -5,14 +5,14 @@
 
 Hand HandBuilder::build(std::string input)
 {
-	auto Cards = std::vector<Card>();
+	auto cards = std::vector<Card>();
 
 	for (unsigned int i = 7; i < input.length(); ++i)
 	{
-		Cards.push_back(CardParser::Parse(input.at(i), input.at(i + 1)));
+		cards.push_back(CardParser::Parse(input.at(i), input.at(i + 1)));
 		i += 2;
 	}
 
-	if (input.at(0) == 'B') return Hand(BLACK, Cards);
-	return Hand(WHITE, Cards);
+	if (input.at(0) == 'B') return Hand(BLACK, cards);
+	return Hand(WHITE, cards);
 }
