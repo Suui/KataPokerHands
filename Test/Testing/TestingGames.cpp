@@ -17,4 +17,11 @@ SCENARIO("Testing Games")
 		CHECK(result.Winner().Color() == BLACK);
 		CHECK(result.Winner().Play() == ONE_PAIR);
 	}
+
+	GIVEN("An input of two One Pairs")
+	{
+		Result result = Game().Play("Black: 2H 3D 5S 9C 2D  White: 2C 3H 4S 8C 3H");
+		CHECK(result.Winner().Color() == WHITE);
+		CHECK(result.Winner().Play() == ONE_PAIR);
+	}
 }
